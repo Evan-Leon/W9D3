@@ -16,27 +16,32 @@ class View {
   }
 
   makeMove($square) {
-    
-    // add player symbol
     let symbol = this.game.currentPlayer;
     
-    // add a class selected 
-    try{
-      debugger
+    try {
       this.game.playMove($square.data("pos"));
 
       if (symbol === 'x'){
         $square.addClass("mark-x");
-      }else {
+      } else {
         $square.addClass("mark-o");
       }
+
       $square.text(symbol);
-    }catch{
+
+      if (this.game.winner()) {
+        const $figcaption = $("<figcaption>");
+        $figcaption.text(this.game.winner() + ", you win!!")
+        this.$el.append($figcaption);
+      } 
+      
+    } catch {
       alert("THAT IS AN INVALID MOVE!!, try again please");
     }
-    // add alert if move is invalid
+    
 
-    //
+
+
   }
 
   setupBoard() {
