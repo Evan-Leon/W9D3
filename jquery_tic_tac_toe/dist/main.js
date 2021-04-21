@@ -55,7 +55,7 @@ eval("\nconst MoveError = function (msg) { this.msg = msg; };\n\n// MoveError re
   \*************************/
 /***/ ((module) => {
 
-eval("class View {\n  constructor(game, $el) {\n    \n    this.$el = $el;\n    this.game = game;\n    this.setupBoard();\n  }\n\n  bindEvents() {\n\n  }\n\n  makeMove($square) {\n\n  }\n\n  setupBoard() {\n    const $ul = $(\"<ul>\");\n    this.$el.append($ul);\n    let $li;\n    for (let i = 0; i < 9; i++) {\n      $li = $(\"<li>\"); \n      $ul.append($li);\n    }\n  }\n}\n\nmodule.exports = View;\n\n\n//# sourceURL=webpack:///./src/ttt-view.js?");
+eval("class View {\n  constructor(game, $el) {\n    \n    this.$el = $el;\n    this.game = game;\n    this.setupBoard();\n    this.bindEvents();\n  }\n\n  bindEvents() {\n    const $ul = this.$el.find(\"ul\");\n    const that = this;\n    $ul.on(\"click\", \"li\", function (e){\n      \n      that.makeMove($(e.target))\n    }); \n  }\n\n  makeMove($square) {\n    debugger\n    // add player symbol\n    const symbol = this.game.currentPlayer;\n    $square.text(symbol);\n    // add a class selected \n    // add alert if move is invalid\n    //\n  }\n\n  setupBoard() {\n    const $ul = $(\"<ul>\");\n    this.$el.append($ul);\n    let $li;\n    for (let i = 0; i < 9; i++) {\n      $li = $(\"<li>\"); \n      $ul.append($li);\n    }\n  }\n}\n\nmodule.exports = View;\n\n\n//# sourceURL=webpack:///./src/ttt-view.js?");
 
 /***/ })
 
