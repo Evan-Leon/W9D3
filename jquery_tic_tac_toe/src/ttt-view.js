@@ -1,5 +1,8 @@
 class View {
   constructor(game, $el) {
+    
+    this.$el = $el;
+    this.game = game;
     this.setupBoard();
   }
 
@@ -13,7 +16,7 @@ class View {
 
   setupBoard() {
     const $ul = $("<ul>");
-    $(".ttt").append($ul);
+    this.$el.append($ul);
     let $li;
     for (let i = 0; i < 9; i++) {
       $li = $("<li>"); 
