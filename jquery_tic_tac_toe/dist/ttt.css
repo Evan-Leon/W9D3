@@ -1,8 +1,36 @@
+body {
+    background-color: black;
+}
+
+h1 {
+    font-size: 64px;
+    color: white;
+    display: flex; 
+    justify-content: center;
+}
+
+
 .ttt ul {
     display: flex;
-
+    width: 500px; 
+    flex-wrap: wrap;
+    margin: 0 auto; 
 }
 
 .ttt li {
-    
+    width: 160px;
+    height: 160px;
+
+    border: 1px solid rgb(194, 194, 194);
+    list-style: none;
+    background-color: gray;
+}
+
+.ttt li:hover {
+    background-color: teal;
+}
+
+.ttt li:active {
+    background-color: rgb(0, 182, 182);
+
 }
