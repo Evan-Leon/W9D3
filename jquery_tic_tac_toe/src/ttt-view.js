@@ -11,7 +11,6 @@ class View {
     const $ul = this.$el.find("ul");
     const that = this;
     $ul.on("click", "li", function (e){
-      
       that.makeMove($(e.target))
     }); 
   }
@@ -19,10 +18,16 @@ class View {
   makeMove($square) {
     debugger
     // add player symbol
-    const symbol = this.game.currentPlayer;
+    let symbol = this.game.currentPlayer;
     $square.text(symbol);
+
+    
     // add a class selected 
+
+    this.game.swapTurn();
+
     // add alert if move is invalid
+
     //
   }
 
