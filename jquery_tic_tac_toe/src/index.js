@@ -1,6 +1,8 @@
-const View = require("./ttt-view")
-// const Game = 
+const View = require("./ttt-view");
+const Game = require("./game");
 
   $(() => {
-    // Your code here
+    const game = new Game();
+    const $ttt = $(".ttt");
+    const view = new View(game, $ttt);
   });
