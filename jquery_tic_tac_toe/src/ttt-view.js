@@ -28,13 +28,20 @@ class View {
       }
 
       $square.text(symbol);
-
-      if (this.game.winner()) {
+      if (this.game.isOver()){
         const $figcaption = $("<figcaption>");
-        $figcaption.text(this.game.winner() + ", you win!!")
+
+        if (this.game.winner()) {
+          $figcaption.text(this.game.winner() + ", you win!!");
+        } else {
+          $figcaption.text("Draw.....play again NOW");
+        }
         this.$el.append($figcaption);
-      } 
-      
+        const $listItems = this.$el.find("li");
+        $listItems.removeClass("mark-o mark-x");
+        $listItems.addClass("gameover");
+        this.$el.find("ul").off();
+      }
     } catch {
       alert("THAT IS AN INVALID MOVE!!, try again please");
     }

@@ -1,5 +1,6 @@
 body {
     background-color: black;
+    font-family: sans-serif;
 }
 
 h1 {
@@ -62,4 +63,10 @@ li:active {
 }
 .mark-o:hover {
     background-color: #B09FCF;
+}
+
+.gameover, .gameover:hover {
+    background-color: azure;
+    color: darkgoldenrod;
+    font-family: serif;
 }
