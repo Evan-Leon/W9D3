@@ -16,16 +16,24 @@ class View {
   }
 
   makeMove($square) {
-    debugger
+    
     // add player symbol
     let symbol = this.game.currentPlayer;
-    $square.text(symbol);
-
     
     // add a class selected 
+    try{
+      debugger
+      this.game.playMove($square.data("pos"));
 
-    this.game.swapTurn();
-
+      if (symbol === 'x'){
+        $square.addClass("mark-x");
+      }else {
+        $square.addClass("mark-o");
+      }
+      $square.text(symbol);
+    }catch{
+      alert("THAT IS AN INVALID MOVE!!, try again please");
+    }
     // add alert if move is invalid
 
     //
@@ -35,8 +43,11 @@ class View {
     const $ul = $("<ul>");
     this.$el.append($ul);
     let $li;
+    let pos;
     for (let i = 0; i < 9; i++) {
+      pos = [Math.floor(i/3), (i % 3)];
       $li = $("<li>"); 
+      $li.data("pos", pos);
       $ul.append($li);
     }
   }
